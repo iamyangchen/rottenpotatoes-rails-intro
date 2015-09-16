@@ -50,13 +50,13 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg' # for Heroku deployment
+#  gem 'pg' # for Heroku deployment
   gem 'rails_12factor'
 end
 
-# group :production, :staging do
-#   gem "pg"
-# end
+group :production, :staging do
+  gem "pg"
+end
 
 group :development, :test do
   gem "sqlite3-ruby", "~> 1.3.0", :require => "sqlite3"
