@@ -39,6 +39,8 @@ class MoviesController < ApplicationController
           @movies = Movie.all.order(:release_date)
           @release_class = "hilite"
         end
+        flash.keep
+        redirect_to :id => session[:id]
       else
         @movies = Movie.all
       end
@@ -61,6 +63,8 @@ class MoviesController < ApplicationController
         rs = session[:ratings_].keys
         @checked_boxes = session[:ratings_]
         @movies = Movie.where(rating: rs)
+        flash.keep
+        redirect_to :ratings_ => session[:ratings_]
       end
     end
 
